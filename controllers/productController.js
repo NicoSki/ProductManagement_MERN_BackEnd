@@ -22,11 +22,6 @@ async function addProduct(req, res) {
             category
         });
 
-        if (req.file) {
-            const { filename } = req.file;
-            newProduct.setImgUrl(filename);
-        }
-
         await newProduct.save();
         res.json({ Product: newProduct });
     } catch (error) {
